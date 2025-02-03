@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Portfolio</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    </head>    
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Innovate. Create. Inspire.</h1>
+    </section>
+
+    <!-- About Me -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my portfolio! I am a developer passionate about innovation. I love coding, tinkering with electronics, and 3D printing. I thrive on solving problems and creating impactful solutions.</p>
+        <a href="#">Read Full Story</a>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="projects">
+        <h2>Projects by Cesar</h2>
+        <div>
+            <img src="/static/images/project1.jpg" alt="Project 1">
+            <p>Project 1 - <a href="#">Repository</a></p>
+        </div>
+        <div>
+            <img src="/static/images/project2.jpg" alt="Project 2">
+            <p>Project 2 - <a href="#">Repository</a></p>
+        </div>
+        <div>
+            <img src="/static/images/project3.jpg" alt="Project 3">
+            <p>Project 3 - <a href="#">Repository</a></p>
+        </div>
+        <a href="#">Check Them Out</a>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact">
+        <h2>Get In Touch</h2>
+        <form class="contact-form" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>        
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Cesar. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
