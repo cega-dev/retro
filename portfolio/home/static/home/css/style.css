@@ -1,59 +1,188 @@
-/* static/myapp/css/style.css */
-
-/* Reset default margin and padding */
-* {
+/* Global styles */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #1c1c1c; /* Dark background for the entire page */
+    font-family: Arial, sans-serif;
+    color: #f5f5f5; /* Light text color for contrast */
+    overflow-x: hidden; /* Disable horizontal scroll */
 }
 
-/* Global Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
+/* Customize scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    background-color: #333; /* Dark background for the scrollbar */
 }
 
-h1, h2 {
-    font-weight: 600;
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Scroll thumb color */
+    border-radius: 10px; /* Rounded corners */
 }
 
-a {
-    color: #3498db;
-    text-decoration: none;
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Lighter color when hovering */
 }
 
-a:hover {
-    text-decoration: underline;
+::-webkit-scrollbar-track {
+    background-color: #333; /* Dark background for scrollbar track */
 }
 
-/* Hero Section */
+/* Hero section setup */
 .hero {
-    background: url('/static/images/hero-bg.jpg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+/* Full-width video background */
+.big-video {
+    position: absolute; /* Position video relative to the hero section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Video styles */
+.hero-video {
+    object-fit: cover; /* Ensure the video covers the entire section */
+    width: 100%;
+    height: 100%;
+}
+
+/* Optional Overlay to darken the background */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darken the background with more opacity for contrast */
+    z-index: 1; /* Ensure overlay is above video */
+}
+
+/* Hero content (text) centered */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
     color: white;
     text-align: center;
-    filter: brightness(0.6);
+    padding: 20px;
+    z-index: 2; /* Ensure text appears above video and overlay */
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s forwards; /* Fade-in animation */
 }
 
-.hero h1 {
-    font-size: 3rem;
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Style the main title */
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* Soft shadow for contrast */
+    line-height: 1.1;
     letter-spacing: 1px;
-    animation: fadeIn 2s ease-in-out;
+}
+
+/* Style the paragraph under the title */
+.hero-content p {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Soft shadow for contrast */
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+
+/* Call-to-action Button Styling */
+.hero-content a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.hero-content a:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust font size on smaller screens */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3.5rem; /* Adjust font size for tablet */
+    }
+
+    .hero-content p {
+        font-size: 1.3rem; /* Adjust font size for tablet */
+    }
+
+    .hero-content a {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem; /* Adjust font size for mobile */
+    }
+
+    .hero-content p {
+        font-size: 1.1rem; /* Adjust font size for mobile */
+    }
+
+    .hero-content a {
+        font-size: 1rem; /* Adjust font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Smaller font size on very small screens */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Smaller font size on very small screens */
+    }
+
+    .hero-content a {
+        font-size: 0.9rem; /* Smaller font size on very small screens */
+    }
 }
 
 /* About Section */
 #about {
     padding: 50px;
     text-align: center;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #2c2c2c; /* Dark background for about section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: -50px;
     z-index: 1;
+    color: #f5f5f5; /* Light text color */
 }
 
 #about h2 {
@@ -63,7 +192,7 @@ a:hover {
 
 #about p {
     font-size: 1.2rem;
-    color: #555;
+    color: #aaa; /* Lighter gray text */
     margin-bottom: 20px;
 }
 
@@ -71,7 +200,7 @@ a:hover {
 .projects {
     padding: 50px 20px;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #3e3e3e; /* Dark background for projects section */
 }
 
 .projects h2 {
@@ -99,14 +228,14 @@ a:hover {
 .projects div p {
     margin-top: 10px;
     font-size: 1rem;
-    color: #555;
+    color: #bbb; /* Light gray text */
 }
 
 /* Contact Section */
 .contact {
     padding: 50px;
     text-align: center;
-    background-color: #fff;
+    background-color: #2c2c2c; /* Dark background for contact section */
 }
 
 .contact h2 {
@@ -150,14 +279,8 @@ a:hover {
 footer {
     padding: 20px;
     text-align: center;
-    background-color: #333;
+    background-color: #333; /* Dark footer */
     color: white;
     font-size: 1rem;
     margin-top: 50px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
