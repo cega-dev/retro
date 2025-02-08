@@ -6,6 +6,7 @@
     <title>My Portfolio</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>    
 <body>
 
@@ -13,7 +14,7 @@
         <!-- Full-width video background -->
         <div class="big-video">
             <video autoplay loop muted playsinline class="hero-video">
-                <source src="{% static 'videos/hero-video.mp4' %}" type="video/mp4">
+                <source src="{% static 'videos/hero-video.webm' %}" type="video/webm">
                 Your browser does not support the video tag.
             </video>
             
@@ -28,12 +29,23 @@
         </div>
     </section>
 
-    <!-- About Me -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio! I am a developer passionate about innovation. I love coding, tinkering with electronics, and 3D printing. I thrive on solving problems and creating impactful solutions.</p>
-        <a href="#">Read Full Story</a>
-    </section>
+   <!-- About Me - Modern Look -->
+<section id="about">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my portfolio! This is where some magic happens every now and then, but for the most part its
+                where I will house all my projects. 
+            </p>
+            <a href="#" class="btn more-about-btn">More About Me</a>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'images/aboutme.jpg' %}" alt="Cesar - Developer">
+        </div>
+    </div>
+</section>
+
 
     <!-- Project Showcase -->
     <section class="projects">
