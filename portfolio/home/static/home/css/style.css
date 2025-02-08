@@ -27,6 +27,8 @@ body {
     background-color: #333; /* Dark background for scrollbar track */
 }
 
+/*///////////////////////////////////////////////////////////////////////////////////////////////*/
+
 /* 🏆 Hero Section - Retro Futuristic */
 .hero {
     position: relative;
@@ -165,19 +167,40 @@ body {
     100% { opacity: 1; }
 }
 
-/* 📱 Responsive Adjustments */
-@media (max-width: 900px) {
+/* 📱 Mobile-Friendly Adjustments for Hero Section */
+@media (max-width: 768px) {
+    /* Adjusting Hero Section for smaller screens */
+    .hero {
+        height: 80vh; /* Reduce height for smaller screens */
+    }
+
+    /* Adjusting Video Background for mobile */
+    .hero-video {
+        object-fit: cover;
+        filter: contrast(1.05) brightness(0.7) saturate(1.1); /* Slightly adjusted video filter */
+    }
+
+    /* Reducing the size of the hero text */
     .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 1.5rem; /* Smaller font size */
+        text-shadow: 
+            2px 2px 3px rgba(255, 204, 0, 0.5), 
+            -2px -2px 3px rgba(255, 204, 0, 0.3); /* Reduced text-shadow for better readability */
     }
+
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Slightly smaller paragraph text */
+        margin-top: 10px;
+        max-width: 90%; /* Make sure it fits within the screen */
     }
+
+    /* Adjusting button for mobile */
     .hero-content a {
-        padding: 12px 24px;
-        font-size: 1rem;
+        padding: 12px 24px; /* Smaller padding */
+        font-size: 1rem; /* Smaller font size */
     }
 }
+
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -304,7 +327,7 @@ body {
 
 /* Tooltip Effect */
 .more-about-btn::after {
-    content: "Bro why would you even click this?";
+    content: "Why would you even click this?";
     position: absolute;
     bottom: -70px;
     left: 55%;
@@ -325,6 +348,52 @@ body {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(-5px);
+}
+
+/* 📱 Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    /* Reducing padding for mobile screens */
+    #about {
+        padding: 50px 5%;
+    }
+
+    /* Adjusting the layout for mobile screens */
+    .about-container {
+        flex-direction: column;
+        gap: 30px; /* Reduced gap between text and image */
+        text-align: center;
+    }
+
+    /* About text adjustments */
+    .about-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-text h2 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* Smaller paragraph font */
+    }
+
+    /* Adjusting the button size */
+    .about-text .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Adjusting the image size */
+    .about-image img {
+        width: 250px; /* Smaller image size for mobile */
+    }
+
+    /* Hiding the Tooltip Text on Mobile */
+    .more-about-btn::after {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -364,7 +433,6 @@ body {
 .project-grid {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -375,7 +443,7 @@ body {
     background: rgba(30, 30, 30, 0.9);
     border: 2px solid #444;
     border-radius: 15px;
-    width: 30%;
+    width: 30%; /* Default card width */
     min-width: 280px;
     padding: 20px;
     text-align: center;
@@ -388,6 +456,7 @@ body {
 /* 🖼️ Project Image */
 .project-card img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -449,30 +518,73 @@ body {
     transform: translateY(-3px);
 }
 
-/* 📱 Responsive Adjustments */
-@media (max-width: 900px) {
+/* 📱 Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    /* 📁 Projects Grid for mobile swipe */
     .project-grid {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        overflow-x: scroll; /* Enables horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+        padding-bottom: 10px; /* To avoid the last item being cut off */
+        position: relative; /* Ensure the overflow hides properly */
     }
 
+    /* 🖼️ Project Card for mobile */
     .project-card {
-        width: 90%;
+        height: fit-content;
+        width: 80%; /* Make cards larger for mobile */
+        min-width: 250px; /* Ensure they don't become too small */
+        margin-bottom: 10px; /* Space between cards when scrolling */
+        flex-shrink: 0; /* Prevent cards from shrinking */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+        position: relative; /* Ensure cards are positioned correctly */
+        z-index: 1; /* Make sure it's above other content */
+    }
+
+    /* 🔥 Hover Effects - Glowing Border & Scanline */
+    .project-card:hover {
+        border-color: #ffcc00;
+        box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.6);
+        transform: scale(0.9); /* Scale down the card on hover */
+    }
+
+    /* Hide scrollbar on mobile */
+    .project-grid::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in Chrome, Safari */
+    }
+
+    .project-grid {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+    }
+
+    /* 🏆 Section Title */
+    .projects h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
     }
 }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;  /* Grey color for placeholder text */
+    font-style: italic; /* Optional: makes it look more like a hint */
+}
+
 /* ⚡ Contact Section */
 .contact {
     padding: 80px 10%;
     text-align: center;
-    background-color: #181818; /* Dark cyberpunk background */
+    background: linear-gradient(135deg, #1e1e1e, #111); /* Dark gradient */
     position: relative;
     overflow: hidden;
 }
 
-/* 🎛️ Subtle Grid Overlay */
+/* 🎛️ Horizontal Line Pattern (Similar to About Section) */
 .contact::before {
     content: "";
     position: absolute;
@@ -480,8 +592,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("/static/images/grid-pattern.png"); /* Same grid effect */
-    opacity: 0.05;
+    background: repeating-linear-gradient(
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 2px,
+        transparent 3px,
+        transparent 6px
+    );
     pointer-events: none;
 }
 
@@ -491,12 +607,12 @@ body {
     margin-bottom: 30px;
     color: #ffcc00; /* Golden accent */
     text-transform: uppercase;
-    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
+    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6); /* Golden glow */
 }
 
 /* 📝 Contact Form */
 .contact-form {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     background: rgba(30, 30, 30, 0.95);
     padding: 40px;
@@ -504,13 +620,14 @@ body {
     box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.2);
     position: relative;
     border: 2px solid #444;
+    z-index: 2; /* Ensure form is above the horizontal line pattern */
 }
 
 /* 💾 Retro Input Fields */
 .contact-form input, 
 .contact-form textarea {
     display: block;
-    width: 100%;
+    width: 95%;
     padding: 15px;
     margin: 15px 0;
     font-size: 1rem;
@@ -571,14 +688,36 @@ body {
     left: 150%;
 }
 
-/* 📱 Responsive Design */
+/* 📱 Mobile-Friendly Adjustments */
 @media (max-width: 768px) {
+    /* Reducing padding of the contact section */
     .contact {
-        padding: 60px 5%;
+        padding: 5px 5%;  /* Smaller padding for mobile screens */
     }
 
+    /* Adjusting the form width to be 100% on smaller screens */
     .contact-form {
         width: 100%;
+        padding: 7px; /* Reduced padding */
+    }
+
+    /* Adjusting the form inputs for better mobile use */
+    .contact-form input, 
+    .contact-form textarea {
+        width: 92%;
+        font-size: 0.9rem; /* Smaller text for input fields */
+        padding: 12px; /* Reduced padding */
+    }
+
+    /* Adjust button size for better mobile experience */
+    .contact-form button {
+        padding: 12px 20px; /* Reduced button size */
+        font-size: 1rem; /* Slightly smaller font */
+    }
+
+    /* Adjust section title */
+    .contact h2 {
+        font-size: 2rem;  /* Smaller font size for mobile */
     }
 }
 
@@ -655,78 +794,6 @@ footer a::before {
 footer a:hover::before {
     clip-path: inset(0 100% 0 0);
     transform: translateX(0);
-}
-
-
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////*/
-
-/* 📱 Responsive Footer */
-@media (max-width: 768px) {
-    footer {
-        font-size: 0.9rem;
-    }
-}
-
-
-/* 📱 Mobile-Friendly */
-@media (max-width: 900px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-text {
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .about-image img {
-        width: 250px;
-    }
-}
-
-/* Adjust font size on smaller screens */
-@media (max-width: 1024px) {
-    .hero-content h1 {
-        font-size: 3.5rem; /* Adjust font size for tablet */
-    }
-
-    .hero-content p {
-        font-size: 1.3rem; /* Adjust font size for tablet */
-    }
-
-    .hero-content a {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem; /* Adjust font size for mobile */
-    }
-
-    .hero-content p {
-        font-size: 1.1rem; /* Adjust font size for mobile */
-    }
-
-    .hero-content a {
-        font-size: 1rem; /* Adjust font size for mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem; /* Smaller font size on very small screens */
-    }
-
-    .hero-content p {
-        font-size: 1rem; /* Smaller font size on very small screens */
-    }
-
-    .hero-content a {
-        font-size: 0.9rem; /* Smaller font size on very small screens */
-    }
 }
 
 

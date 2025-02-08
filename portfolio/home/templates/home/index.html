@@ -47,33 +47,58 @@
 </section>
 
 
-    <!-- Project Showcase -->
-    <section class="projects">
-        <h2>Projects by Cesar</h2>
-        <div>
-            <img src="/static/images/project1.jpg" alt="Project 1">
+<!-- Project Showcase -->
+<section class="projects">
+    <h2>Projects by Cesar</h2>
+    <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <img src="/static/images/no-image-available.jpg" alt="Project 1">
             <p>Project 1 - <a href="#">Repository</a></p>
         </div>
-        <div>
-            <img src="/static/images/project2.jpg" alt="Project 2">
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="/static/images/no-image-available.jpg" alt="Project 2">
             <p>Project 2 - <a href="#">Repository</a></p>
         </div>
-        <div>
-            <img src="/static/images/project3.jpg" alt="Project 3">
+        <!-- Project 3 -->
+        <div class="project-card">
+            <img src="/static/images/no-image-available.jpg" alt="Project 3">
             <p>Project 3 - <a href="#">Repository</a></p>
         </div>
-        <a href="#">Check Them Out</a>
-    </section>
+        <!-- Project 4 -->
+        <div class="project-card">
+            <img src="/static/images/no-image-available.jpg" alt="Project 4">
+            <p>Project 4 - <a href="#">Repository</a></p>
+        </div>
+    </div>
+    <a href="#">Check Them Out</a>
+</section>
 
-    <!-- Contact Form -->
-    <section class="contact">
-        <h2>Get In Touch</h2>
-        <form class="contact-form" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
-        </form>        
-    </section>
+
+  <!-- Contact Form -->
+<section class="contact">
+    <h2>Get In Touch</h2>
+    <form class="contact-form" method="post">
+        {% csrf_token %}
+        
+        <!-- Render each form field with classes for styling -->
+        <div class="form-field">
+            {{ form.name }}
+        </div>
+        
+        <div class="form-field">
+            {{ form.email }}
+        </div>
+        
+        <div class="form-field">
+            {{ form.message }}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>        
+</section>
 
     <!-- Footer -->
     <footer>
