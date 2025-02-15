@@ -29,13 +29,13 @@ body {
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
 
-/* 🏆 Hero Section - Retro Futuristic */
+/* 🏆 Retro-Futuristic Hero Section */
 .hero {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: #111; /* Dark base for better contrast */
+    background: #090909; /* Deep dark base */
 }
 
 /* 🎬 Full-width video background */
@@ -47,27 +47,27 @@ body {
     height: 100%;
 }
 
-/* 🔥 Video styling */
+/* 🔥 Enhanced Video Styling */
 .hero-video {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    filter: contrast(1.1) brightness(0.8) saturate(1.2); /* Makes colors richer */
+    filter: contrast(1.2) brightness(0.7) saturate(1.3); /* Stronger retro glow */
 }
 
-/* 🔳 Dark Overlay with Glitch Effect */
+/* 🔳 Dark Overlay with Glitch & Blur */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(3px);
     z-index: 1;
 }
 
-/* 📺 Retro Scanline Effect */
+/* 📺 CRT Scanline Effect */
 .overlay::before {
     content: "";
     position: absolute;
@@ -76,11 +76,12 @@ body {
     width: 100%;
     height: 100%;
     background: repeating-linear-gradient(
-        rgba(255, 255, 255, 0.02) 0px,
-        rgba(255, 255, 255, 0.02) 2px,
-        transparent 3px,
+        rgba(255, 204, 0, 0.03) 0px, 
+        rgba(255, 204, 0, 0.03) 2px, 
+        transparent 3px, 
         transparent 6px
     );
+    opacity: 0.6;
     pointer-events: none;
 }
 
@@ -90,26 +91,45 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ddd;
+    color: #ffffff; /* Neon gold */
     text-align: center;
     padding: 20px;
     z-index: 2;
+    font-family: 'Press Start 2P', cursive; /* Pixel arcade font */
     opacity: 0;
     animation: fadeIn 2s forwards;
+    text-shadow: 0px 0px 20px rgba(255, 204, 0, 0.8), 
+                 0px 0px 20px rgba(255, 204, 0, 0.5);
 }
 
 /* 💥 Glitch Text Effect */
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
     margin: 0;
-    text-shadow: 
-        2px 2px 5px rgba(255, 204, 0, 0.5), 
-        -2px -2px 5px rgba(255, 204, 0, 0.3);
     line-height: 1.1;
     letter-spacing: 2px;
     text-transform: uppercase;
     animation: glitch 0.8s infinite alternate;
+    text-shadow: 
+        4px 4px 0px #222, 
+        -4px -4px 0px #444, 
+        2px 2px 15px rgba(255, 204, 0, 0.8);
+}
+
+/* 🔥 Glitch Animation */
+@keyframes glitch {
+    0% { text-shadow: 3px 3px 0px #ffcc00, -3px -3px 0px #ffcc00; }
+    25% { text-shadow: -2px -2px 0px #ffcc00, 2px 2px 0px #ffdb4d; }
+    50% { text-shadow: 5px -3px 0px #ffcc00, -5px 3px 0px #ffcc00; }
+    75% { text-shadow: -3px 3px 0px #ffcc00, 3px -3px 0px #ffdb4d; }
+    100% { text-shadow: 3px -3px 0px #ffcc00, -3px 3px 0px #ffcc00; }
+}
+
+/* ⚡ Hero Section Fade-in */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translate(-50%, -55%); }
+    100% { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 /* 🕶️ Subtle Text Animation */
@@ -206,15 +226,16 @@ body {
 
 /* 🏆 Retro-Futuristic About Me Section */
 #about {
-    background: linear-gradient(135deg, #1e1e1e, #111); /* Dark metallic gradient */
-    color: #ddd;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* Darker metallic gradient */
+    color: #e0e0e0;
     padding: 80px 10%;
     font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
-/* 📺 Subtle CRT Scanline Effect */
+/* 📡 Slanted Tight Lines Background (Matches Tech Stack) */
 #about::before {
     content: "";
     position: absolute;
@@ -223,11 +244,13 @@ body {
     width: 100%;
     height: 100%;
     background: repeating-linear-gradient(
-        rgba(255, 255, 255, 0.02) 0px,
-        rgba(255, 255, 255, 0.02) 2px,
-        transparent 3px,
-        transparent 6px
+        180deg, 
+        rgba(255, 204, 0, 0.08) 0px, 
+        rgba(255, 204, 0, 0.08) 2px, 
+        transparent 3px, 
+        transparent 5px
     );
+    opacity: 0.4;
     pointer-events: none;
 }
 
@@ -241,7 +264,7 @@ body {
     gap: 50px;
 }
 
-/* 🔥 Strong, Masculine Header */
+/* 🔥 Strong, Retro Header */
 .about-text {
     flex: 1;
     text-align: left;
@@ -251,18 +274,18 @@ body {
 .about-text h2 {
     font-size: 2.5rem;
     margin-bottom: 15px;
-    color: #d4af37; /* Warm gold accent */
-    text-shadow: 4px 4px 0px #444; /* Gunmetal shadow for depth */
+    color: #ffcc00; /* Bright gold to match */
+    text-shadow: 4px 4px 0px #222; /* Deep shadow for a neon look */
 }
 
 /* 💻 Sleek Paragraph Styling */
 .about-text p {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #bbb;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 10px;
-    border-radius: 5px;
+    color: #ccc;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 12px;
+    border-radius: 8px;
 }
 
 /* 🎖️ Retro-Futuristic Button */
@@ -270,21 +293,21 @@ body {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 24px;
-    background: #d4af37; /* Gold */
+    background: #ffcc00; /* Gold */
     color: #222;
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 10px;
     text-decoration: none;
     transition: 0.3s;
-    border: 2px solid #888;
-    box-shadow: 0px 0px 10px #d4af37, 0px 0px 20px rgba(255, 204, 0, 0.4);
+    border: 2px solid #ffdb4d;
+    box-shadow: 0px 0px 10px #ffcc00, 0px 0px 20px rgba(255, 204, 0, 0.5);
 }
 
 .about-text .btn:hover {
-    background: #ffcc00;
+    background: #ffdb4d;
     color: #000;
-    box-shadow: 0px 0px 15px #ffcc00, 0px 0px 30px rgba(255, 204, 0, 0.6);
+    box-shadow: 0px 0px 15px #ffdb4d, 0px 0px 30px rgba(255, 204, 0, 0.6);
 }
 
 /* 🏴‍☠️ Darker, Rugged Image Styling */
@@ -293,14 +316,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
+/* 🌟 Glowing Gold Effect Behind Image */
+.about-image::before {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 0;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 🖼️ Image Styling */
 .about-image img {
     width: 320px;
-    border: 5px solid #d4af37; /* Gold outline */
-    box-shadow: 0px 0px 15px #d4af37, 0px 0px 25px rgba(255, 204, 0, 0.3);
-    filter: contrast(1.1) saturate(1.2);
+    border: 5px solid #ffcc00; /* Gold outline */
+    box-shadow: 0px 0px 15px #ffcc00, 0px 0px 25px rgba(255, 204, 0, 0.4);
+    filter: contrast(1.2) saturate(1.3);
     transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .about-image img:hover {
@@ -319,6 +358,8 @@ body {
     text-transform: uppercase;
     border-radius: 25px;
     transition: background 0.3s ease;
+    border: 2px solid #ffdb4d;
+    box-shadow: 0px 0px 15px #ffcc00;
 }
 
 .more-about-btn:hover {
@@ -398,6 +439,151 @@ body {
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
 
+/* ⚙️ Tech Stack Section */
+#tech-stack {
+    padding: 80px 10%;
+    background-color: #1e1e1e;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🎯 Slanted Pattern Background - Tighter Lines */
+#tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        -45deg,  /* Angle of the slant */
+        rgba(161, 158, 143, 0.15) 0px,
+        rgba(243, 243, 241, 0.15) 2px,  /* Line thickness */
+        transparent 3px,
+        transparent 5px  /* Space between lines */
+    );
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* 🎯 Section Title */
+#tech-stack h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
+}
+
+/* 📦 Tech Grid */
+.stack-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* 🔹 Tech Items */
+.stack-item {
+    background: rgba(30, 30, 30, 0.9);
+    border: 2px solid #444;
+    border-radius: 15px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
+}
+
+/* 🖼️ Tech Icons */
+.stack-item img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;  /* Make sure the icon stays above the glow */
+    transition: transform 0.3s ease;
+}
+
+/* 🔥 Glowing Effect Behind the Icon */
+.stack-item::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.6) 0%, rgba(255, 204, 0, 0) 70%);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    z-index: 1;  /* Keep the glow behind the icon */
+}
+
+/* 🔥 Activate Glow on Hover */
+.stack-item:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* ✨ Hover Effects */
+.stack-item:hover {
+    border-color: #ffcc00;
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.8);
+    transform: scale(1.1);
+}
+
+/* 📱 Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    /* 🌟 Tech Stack Section */
+    .stack-grid {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        gap: 20px;
+        height: 250px; /* Show only 3 items at a time */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding-right: 25px;
+        padding-left: 25px;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+        position: relative;
+    }
+
+    /* 🔹 Tech Items */
+    .stack-item {
+        height: fit-content;
+        width: 30%; /* Make cards larger for mobile */
+        min-width: 250px; /* Ensure they don't become too small */
+        margin-bottom: 10px; /* Space between cards when scrolling */
+        flex-shrink: 0; /* Prevent cards from shrinking */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+        position: relative; /* Ensure cards are positioned correctly */
+        z-index: 1; /* Make sure it's above other content */
+    }
+
+    /* 🖼️ Tech Icons */
+    .stack-item img {
+        width: 60px; /* Slightly larger for mobile */
+        height: auto;
+    }
+
+    /* ✨ Hide scrollbar but allow scrolling */
+    .stack-grid::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in Chrome, Safari */
+    }
+
+    .stack-grid {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////*/
+
 /* ⚡ Projects Section */
 .projects {
     padding: 80px 10%;
@@ -405,6 +591,7 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
 }
 
 /* 🎛️ Subtle Grid Overlay */
@@ -518,6 +705,38 @@ body {
     transform: translateY(-3px);
 }
 
+/* 🕹️ Retro Button */
+.retro-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 30px;
+    background: #ffcc00;
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    border: 3px solid #222;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px #222;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 🕹️ Hover Effect */
+.retro-button:hover {
+    background: #ffdb4d;
+    box-shadow: 6px 6px 0px #222;
+    transform: translate(-2px, -2px);
+}
+
+/* 🎮 Active (Click) Effect */
+.retro-button:active {
+    background: #ffb700;
+    box-shadow: 2px 2px 0px #222;
+    transform: translate(2px, 2px);
+}
+
 /* 📱 Mobile-Friendly Adjustments */
 @media (max-width: 768px) {
     /* 📁 Projects Grid for mobile swipe */
@@ -569,22 +788,17 @@ body {
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #999;  /* Grey color for placeholder text */
-    font-style: italic; /* Optional: makes it look more like a hint */
-}
-
-/* ⚡ Contact Section */
+/* 🛸 Retro-Futuristic Contact Section */
 .contact {
     padding: 80px 10%;
     text-align: center;
-    background: linear-gradient(135deg, #1e1e1e, #111); /* Dark gradient */
+    background: linear-gradient(135deg, #121212, #090909); /* Darker metallic gradient */
     position: relative;
     overflow: hidden;
+    font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
 }
 
-/* 🎛️ Horizontal Line Pattern (Similar to About Section) */
+/* 📺 Subtle CRT Scanline Effect */
 .contact::before {
     content: "";
     position: absolute;
@@ -593,34 +807,37 @@ body {
     width: 100%;
     height: 100%;
     background: repeating-linear-gradient(
-        rgba(255, 255, 255, 0.02) 0px,
-        rgba(255, 255, 255, 0.02) 2px,
-        transparent 3px,
-        transparent 6px
+        -45deg, 
+        rgba(255, 204, 0, 0.08) 0px, 
+        rgba(255, 204, 0, 0.08) 2px, 
+        transparent 3px, 
+        transparent 5px
     );
+    opacity: 0.4;
     pointer-events: none;
 }
 
 /* 🏆 Section Title */
 .contact h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #ffcc00; /* Golden accent */
+    color: #ffcc00; /* Bright gold */
     text-transform: uppercase;
-    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6); /* Golden glow */
+    text-shadow: 4px 4px 0px #222; /* Deep shadow for contrast */
 }
 
 /* 📝 Contact Form */
 .contact-form {
     max-width: 650px;
     margin: 0 auto;
-    background: rgba(30, 30, 30, 0.95);
+    background: rgba(20, 20, 20, 0.95);
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.2);
-    position: relative;
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.3);
     border: 2px solid #444;
-    z-index: 2; /* Ensure form is above the horizontal line pattern */
+    position: relative;
+    z-index: 2;
+    margin-bottom: 30px;
 }
 
 /* 💾 Retro Input Fields */
@@ -632,11 +849,20 @@ body {
     margin: 15px 0;
     font-size: 1rem;
     border-radius: 5px;
-    border: 2px solid #555;
-    background-color: #222;
+    border: 2px solid #666;
+    background-color: #111;
     color: #ffcc00;
-    font-family: "Courier New", monospace; /* Retro Terminal Font */
+    font-family: 'Press Start 2P', cursive; /* Matches theme */
     transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* 👾 Placeholder Text */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;  /* Faded grey */
+    font-style: italic;
+    text-transform: uppercase;
 }
 
 /* 🛠️ Input Focus Effects */
@@ -645,16 +871,16 @@ body {
     border-color: #ffcc00;
     box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.5);
     outline: none;
-    background: #111;
+    background: #000;
 }
 
 /* 🚀 Glowing Button */
 .contact-form button {
     padding: 15px 30px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #222;
+    color: #000;
     background: #ffcc00;
     border: none;
     border-radius: 5px;
@@ -662,16 +888,18 @@ body {
     transition: 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0px 0px 15px #ffcc00, 0px 0px 25px rgba(255, 204, 0, 0.5);
 }
 
 /* ⚡ Glitch Effect on Hover */
 .contact-form button:hover {
     background: #ffdb4d;
     transform: scale(1.05);
-    box-shadow: 0px 4px 20px rgba(255, 204, 0, 0.5);
+    box-shadow: 0px 4px 25px rgba(255, 204, 0, 0.6);
 }
 
-/* 🔥 Glitch Animation */
+/* 🔥 Animated Glitch Overlay */
 .contact-form button::before {
     content: "";
     position: absolute;
@@ -687,6 +915,32 @@ body {
 .contact-form button:hover::before {
     left: 150%;
 }
+
+/* 🕹️ Retro Terminal Outline on Focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 2px solid #ffcc00;
+    box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.6);
+    outline: none;
+}
+
+/* 📡 Glitchy Border Effect on Focus */
+.contact-form input:focus::before,
+.contact-form textarea:focus::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 204, 0, 0.1) 0px,
+        rgba(255, 204, 0, 0.1) 2px,
+        transparent 3px,
+        transparent 6px
+    );
+    opacity: 0.3;
+}
+
 
 /* 📱 Mobile-Friendly Adjustments */
 @media (max-width: 768px) {
@@ -730,7 +984,7 @@ footer {
     background: #181818; /* Deep dark background */
     color: #ffcc00; /* Golden retro text */
     font-size: 1rem;
-    margin-top: 50px;
+    margin-top: 0px;
     position: relative;
     overflow: hidden;
     text-transform: uppercase;

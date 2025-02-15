@@ -14,7 +14,7 @@
         <!-- Full-width video background -->
         <div class="big-video">
             <video autoplay loop muted playsinline class="hero-video">
-                <source src="{% static 'videos/hero-video.webm' %}" type="video/webm">
+                <source src="/static/images/no-image-available.jpg" type="video/webm">
                 Your browser does not support the video tag.
             </video>
             
@@ -41,15 +41,66 @@
             <a href="#" class="btn more-about-btn">More About Me</a>
         </div>
         <div class="about-image">
-            <img src="{% static 'images/aboutme.jpg' %}" alt="Cesar - Developer">
+            <img src="/static/images/no-image-available.jpg" alt="Cesar - Developer">
         </div>
     </div>
 </section>
 
+<!-- Tech Stack Section -->
+<section id="tech-stack">
+    <h2>Tech Stack</h2>
+    <div class="stack-grid">
+        <!-- HTML -->
+        <div class="stack-item">
+            <img src="static/icons/html5.svg" alt="HTML">
+            <p>HTML5</p>
+        </div>
+        <!-- CSS -->
+        <div class="stack-item">
+            <img src="static/icons/css.svg" alt="CSS">
+            <p>CSS3</p>
+        </div>
+        <!-- JavaScript -->
+        <div class="stack-item">
+            <img src="static/icons/javascript.svg" alt="JavaScript">
+            <p>JavaScript</p>
+        </div>
+        <!-- Python -->
+        <div class="stack-item">
+            <img src="static/icons/python.svg" alt="Python">
+            <p>Python</p>
+        </div>
+        <!-- Node.js -->
+        <div class="stack-item">
+            <img src="static/icons/react.svg" alt="React">
+            <p>React</p>
+        </div>
+        <!-- Django -->
+        <div class="stack-item">
+            <img src="static/icons/django.svg" alt="Django">
+            <p>Django</p>
+        </div>
+        <!-- Linux -->
+        <div class="stack-item">
+            <img src="static/icons/linux.svg" alt="Linux">
+            <p>Linux</p>
+        </div>
+        <!-- Vue -->
+        <!-- <div class="stack-item">
+            <img src="static/icons/linux.svg" alt="Linux">
+            <p>Linux</p>
+        </div> -->
+        <!-- Angular -->
+        <!-- <div class="stack-item">
+            <img src="static/icons/linux.svg" alt="Linux">
+            <p>Linux</p>
+        </div> -->
+    </div>
+</section>
 
 <!-- Project Showcase -->
 <section class="projects">
-    <h2>Projects by Cesar</h2>
+    <h2>Projects</h2>
     <div class="project-grid">
         <!-- Project 1 -->
         <div class="project-card">
@@ -72,9 +123,8 @@
             <p>Project 4 - <a href="#">Repository</a></p>
         </div>
     </div>
-    <a href="#">Check Them Out</a>
+    <a href="#" class="retro-button">Check Them Out</a>
 </section>
-
 
   <!-- Contact Form -->
 <section class="contact">
