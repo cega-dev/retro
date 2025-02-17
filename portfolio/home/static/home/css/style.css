@@ -62,7 +62,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.116);
     backdrop-filter: blur(3px);
     z-index: 1;
 }
@@ -91,18 +91,18 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff; /* Neon gold */
+    color: #ffcc00; /* Neon gold */
     text-align: center;
     padding: 20px;
     z-index: 2;
     font-family: 'Press Start 2P', cursive; /* Pixel arcade font */
     opacity: 0;
     animation: fadeIn 2s forwards;
-    text-shadow: 0px 0px 20px rgba(255, 204, 0, 0.8), 
+    text-shadow: 0px 0px 20px rgba(255, 204, 0, 0.6), 
                  0px 0px 20px rgba(255, 204, 0, 0.5);
 }
 
-/* 💥 Glitch Text Effect */
+/* 💥 3D Glitch Text Effect */
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: bold;
@@ -110,36 +110,36 @@ body {
     line-height: 1.1;
     letter-spacing: 2px;
     text-transform: uppercase;
-    animation: glitch 0.8s infinite alternate;
+    position: relative;
+    animation: glitch 10s infinite alternate;
+    color: #ffcc00; /* Main Gold Color */
     text-shadow: 
-        4px 4px 0px #222, 
-        -4px -4px 0px #444, 
-        2px 2px 15px rgba(255, 204, 0, 0.8);
+        5px 5px 0px #888888,   /* Subtle Gray Offset */
+        -5px -5px 0px #444,    /* Darker Gray for Layering */
+        2px 2px 20px rgba(255, 204, 0, 0.6); /* Stronger Neon Glow */
 }
 
-/* 🔥 Glitch Animation */
+/* 🔥 3D Layered Glitch Animation */
 @keyframes glitch {
-    0% { text-shadow: 3px 3px 0px #ffcc00, -3px -3px 0px #ffcc00; }
-    25% { text-shadow: -2px -2px 0px #ffcc00, 2px 2px 0px #ffdb4d; }
-    50% { text-shadow: 5px -3px 0px #ffcc00, -5px 3px 0px #ffcc00; }
-    75% { text-shadow: -3px 3px 0px #ffcc00, 3px -3px 0px #ffdb4d; }
-    100% { text-shadow: 3px -3px 0px #ffcc00, -3px 3px 0px #ffcc00; }
+    0%   { text-shadow: 5px 5px 0px #888888, -5px -5px 0px #444, 0px 0px 20px #ffcc00; }
+    10%  { text-shadow: -6px -4px 0px #888888, 6px 4px 0px #444, 0px 0px 25px #ffcc00; }
+    20%  { text-shadow: 4px -6px 0px #888888, -4px 6px 0px #444, 0px 0px 30px #ffcc00; }
+    30%  { text-shadow: -5px 5px 0px #888888, 5px -5px 0px #444, 0px 0px 35px #ffcc00; }
+    40%  { text-shadow: 6px -6px 0px #888888, -6px 6px 0px #444, 0px 0px 25px #ffcc00; }
+    50%  { text-shadow: -5px -5px 0px #888888, 5px 5px 0px #444, 0px 0px 20px #ffcc00; }
+    60%  { text-shadow: 4px 6px 0px #888888, -4px -6px 0px #444, 0px 0px 30px #ffcc00; }
+    70%  { text-shadow: -6px 4px 0px #888888, 6px -4px 0px #444, 0px 0px 35px #ffcc00; }
+    80%  { text-shadow: 5px -5px 0px #888888, -5px 5px 0px #444, 0px 0px 25px #ffcc00; }
+    90%  { text-shadow: -4px -6px 0px #888888, 4px 6px 0px #444, 0px 0px 20px #ffcc00; }
+    100% { text-shadow: 6px 6px 0px #888888, -6px -6px 0px #444, 0px 0px 30px #ffcc00; }
 }
+
+
 
 /* ⚡ Hero Section Fade-in */
 @keyframes fadeIn {
     0% { opacity: 0; transform: translate(-50%, -55%); }
     100% { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-/* 🕶️ Subtle Text Animation */
-@keyframes glitch {
-    0% {
-        text-shadow: 2px 2px 5px rgba(255, 204, 0, 0.5);
-    }
-    100% {
-        text-shadow: -2px -2px 5px rgba(255, 204, 0, 0.3);
-    }
 }
 
 /* 📜 Hero Paragraph */
@@ -156,31 +156,6 @@ body {
     opacity: 0.85;
 }
 
-/* 🚀 Call-to-Action Button */
-.hero-content a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    background-color: #d4af37; /* Gold */
-    color: #222;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 10px;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: 2px solid #888;
-    box-shadow: 0px 0px 10px #d4af37, 0px 0px 20px rgba(255, 204, 0, 0.4);
-}
-
-/* ✨ Button Hover Effects */
-.hero-content a:hover {
-    background-color: #ffcc00;
-    color: #000;
-    transform: translateY(-5px);
-    box-shadow: 0px 0px 15px #ffcc00, 0px 0px 30px rgba(255, 204, 0, 0.6);
-}
-
 /* 🎥 Fade-in animation for hero content */
 @keyframes fadeIn {
     0% { opacity: 0; }
@@ -189,38 +164,56 @@ body {
 
 /* 📱 Mobile-Friendly Adjustments for Hero Section */
 @media (max-width: 768px) {
-    /* Adjusting Hero Section for smaller screens */
-    .hero {
-        height: 80vh; /* Reduce height for smaller screens */
+    /* Show only the mobile version of the content */
+    .hero-content {
+        display: none; /* Hide the PC version */
     }
 
-    /* Adjusting Video Background for mobile */
-    .hero-video {
-        object-fit: cover;
-        filter: contrast(1.05) brightness(0.7) saturate(1.1); /* Slightly adjusted video filter */
+    .hero-mobile {
+        display: block; /* Show the mobile version */
+        text-align: center;
+        padding: 10px;
+        max-width: 90%; /* Optional: Ensure text stays within bounds */
+        position: relative; /* Ensure it is part of the stacking context */
+        z-index: 1; /* Make sure it's in front */
+        font-family: 'Press Start 2P', cursive; /* Apply pixelated arcade font */
+        color: #ffcc00; /* Neon gold color */
+        margin-top: 35vh;
     }
 
-    /* Reducing the size of the hero text */
-    .hero-content h1 {
-        font-size: 1.5rem; /* Smaller font size */
+    .hero-mobile h1 {
+        font-size: 2.7rem; /* Adjust font size for mobile */
+        line-height: 1.5;
+        animation: glitch 15s infinite alternate; /* Apply glitch animation */
         text-shadow: 
-            2px 2px 3px rgba(255, 204, 0, 0.5), 
-            -2px -2px 3px rgba(255, 204, 0, 0.3); /* Reduced text-shadow for better readability */
+            4px 4px 0px #888888,  /* Subtle Gray Offset */
+            -4px -4px 0px #444,   /* Darker Gray for Layering */
+            2px 2px 15px rgba(255, 204, 0, 0.85); /* Stronger Neon Glow */
+        position: relative; /* Ensure it is positioned correctly */
+        margin: 0; /* Remove default margin */
+        left: 20px;
     }
 
-    .hero-content p {
-        font-size: 1.1rem; /* Slightly smaller paragraph text */
+    /* Hero Paragraph Text */
+    .hero-mobile p {
+        font-size: 1rem; /* Slightly smaller paragraph text */
         margin-top: 10px;
-        max-width: 90%; /* Make sure it fits within the screen */
+        max-width: 85vw; /* Ensures paragraph does not overflow */
+        line-height: 1.5; /* Improve readability */
+        font-weight: 300; /* Lighter weight for a smoother look */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Add some shadow to text */
+        opacity: 0.85; /* Slight transparency */
+        letter-spacing: 0.5px;
     }
 
-    /* Adjusting button for mobile */
-    .hero-content a {
-        padding: 12px 24px; /* Smaller padding */
-        font-size: 1rem; /* Smaller font size */
-    }
 }
 
+/* Default for larger screens (PC) */
+@media (min-width: 769px) {
+    .hero-mobile {
+        display: none; /* Hide mobile version */
+    }
+}
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -273,9 +266,10 @@ body {
 
 .about-text h2 {
     font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #ffcc00; /* Bright gold to match */
-    text-shadow: 4px 4px 0px #222; /* Deep shadow for a neon look */
+    color: #ffcc00;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
 }
 
 /* 💻 Sleek Paragraph Styling */
@@ -325,7 +319,7 @@ body {
     position: absolute;
     width: 130%;
     height: 130%;
-    background: radial-gradient(circle, rgba(255, 204, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
     z-index: 0;
     opacity: 0.5;
     transition: opacity 0.3s ease-in-out;
@@ -335,8 +329,8 @@ body {
 .about-image img {
     width: 320px;
     border: 5px solid #ffcc00; /* Gold outline */
-    box-shadow: 0px 0px 15px #ffcc00, 0px 0px 25px rgba(255, 204, 0, 0.4);
-    filter: contrast(1.2) saturate(1.3);
+    box-shadow: 0px 0px 15px #ffcc00, 0px 0px 25px rgba(255, 204, 0, 0.2);
+    
     transition: transform 0.3s ease;
     position: relative;
     z-index: 1;
@@ -432,6 +426,12 @@ body {
 
     /* Hiding the Tooltip Text on Mobile */
     .more-about-btn::after {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* Show the tooltip on hover */
+    .more-about-btn:hover::after {
         opacity: 0;
         visibility: hidden;
     }
@@ -594,6 +594,17 @@ body {
     font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
 }
 
+/* 🏆 Section Title */
+.projects h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
+    position: relative; /* Make sure it is on top of the grid */
+    z-index: 2; /* Bring the text above the grid */
+}
+
 /* 🎛️ Subtle Grid Overlay */
 .projects::before {
     content: "";
@@ -602,18 +613,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("/static/images/grid-pattern.png"); /* Add a retro grid */
-    opacity: 0.1;
+    background: url("/static/images/grid-pattern.png"); /* Retro grid */
+    opacity: 0.3; /* Adjust opacity for background visibility */
     pointer-events: none;
-}
-
-/* 🏆 Section Title */
-.projects h2 {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    color: #ffcc00; /* Gold accent */
-    text-transform: uppercase;
-    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
+    z-index: 1; /* Keep the grid behind the text */
 }
 
 /* 📁 Projects Grid */
@@ -623,6 +626,8 @@ body {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative; /* Ensure the grid container is positioned correctly */
+    z-index: 1; /* Keep the grid background layer behind the cards */
 }
 
 /* 🖼️ Project Card */
@@ -638,6 +643,7 @@ body {
     position: relative;
     box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
     overflow: hidden;
+    z-index: 2; /* Ensure cards are above the background */
 }
 
 /* 🖼️ Project Image */
@@ -663,14 +669,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-        rgba(255, 255, 255, 0.03) 0px,
-        rgba(255, 255, 255, 0.03) 2px,
-        transparent 3px,
-        transparent 6px
-    );
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1; /* Place scanlines below the card content */
 }
 
 /* 📺 Activate Scanlines on Hover */
@@ -697,6 +698,7 @@ body {
     border-radius: 8px;
     text-decoration: none;
     transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 3; /* Ensure the button appears above the card */
 }
 
 /* 🎨 Button Hover */
@@ -709,10 +711,9 @@ body {
 .retro-button {
     display: inline-block;
     margin-top: 40px;
-    padding: 15px 30px;
+    padding: 12px 24px;
     background: #ffcc00;
     color: #222;
-    font-size: 1.2rem;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
@@ -721,13 +722,15 @@ body {
     border-radius: 10px;
     box-shadow: 4px 4px 0px #222;
     transition: all 0.2s ease-in-out;
+    border: 2px solid #ffdb4d;
+    box-shadow: 0px 0px 15px #ffcc00;
+    position: relative; /* Ensure it's positioned relative to its container */
+    z-index: 2; /* Ensures the button stays above other elements like grid overlays */
 }
 
 /* 🕹️ Hover Effect */
 .retro-button:hover {
     background: #ffdb4d;
-    box-shadow: 6px 6px 0px #222;
-    transform: translate(-2px, -2px);
 }
 
 /* 🎮 Active (Click) Effect */
@@ -736,6 +739,7 @@ body {
     box-shadow: 2px 2px 0px #222;
     transform: translate(2px, 2px);
 }
+
 
 /* 📱 Mobile-Friendly Adjustments */
 @media (max-width: 768px) {
@@ -781,8 +785,8 @@ body {
 
     /* 🏆 Section Title */
     .projects h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 2.5rem;
+        margin-bottom: 75px;
     }
 }
 
@@ -820,10 +824,10 @@ body {
 /* 🏆 Section Title */
 .contact h2 {
     font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #ffcc00; /* Bright gold */
+    color: #ffcc00;
     text-transform: uppercase;
-    text-shadow: 4px 4px 0px #222; /* Deep shadow for contrast */
+    margin-bottom: 40px;
+    text-shadow: 0px 4px 15px rgba(255, 204, 0, 0.6);
 }
 
 /* 📝 Contact Form */
@@ -951,7 +955,7 @@ body {
 
     /* Adjusting the form width to be 100% on smaller screens */
     .contact-form {
-        width: 100%;
+        width: 95%;
         padding: 7px; /* Reduced padding */
     }
 
@@ -971,7 +975,7 @@ body {
 
     /* Adjust section title */
     .contact h2 {
-        font-size: 2rem;  /* Smaller font size for mobile */
+        font-size: 2.5rem;  /* Smaller font size for mobile */
     }
 }
 
@@ -1038,7 +1042,7 @@ footer a::before {
     position: absolute;
     left: 0;
     top: 0;
-    color: #ff0000;
+    color: #888888 ;
     opacity: 0.8;
     clip-path: inset(0 0 0 0);
     transform: translateX(-2px);
